@@ -14,17 +14,17 @@ function extractClassName(val) {
     November: "11",
     Dezember: "12",
   };
-  const session = val.split(" ").slice(-2);
+  const session = val.split(" ").slice(-3);
   const res = [];
 
-  if (session[0].length === 4) {
-    res.push(session[0]);
+  if (session[0] === "Class" && session[1].length === 4) {
+    res.push(session[1]);
   } else {
     return null;
   }
 
   for (const prob in month) {
-    if (prob == session[1]) {
+    if (prob == session[2]) {
       res.push(month[prob]);
     }
   }
